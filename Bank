@@ -1,0 +1,33 @@
+from random import randint
+rand = randint(0,25)
+def Bank(d,k):
+    var_2 = int(input('Колличество ')) 
+    var_3 = int(input('Сколько процентов (%)'))
+    var_4 = int(input('Длительность (в месяцах)'))
+    global rand
+    if rand == 1:
+        print('Банк обанкротился.Вы лох,мы забрали все деньги себе! Пока.')
+    else:
+        for i in range(var_4):
+            rand = randint(0,25)
+            if rand == 1:
+                print('Банк обанкротился.Вы лох,мы забрали все деньги себе! Пока.')
+                break
+            else:
+                if i == 0 :
+                    key = int(input('Вложение в этом месяце'))
+                else:
+                    key = int(input('Вложение полсе '+str(i)+' месяца'))
+                var_2_key=(key+var_2)*(var_3/100)
+                var_2=var_2_key+var_2+key
+        if rand != 1:
+            w = var_2/d 
+            w = round(w,1)
+            print(str(w)+' '+k+' - доход от депозита.')
+
+var_1 = input('Доллары/грн?').lower()
+if 'доллар' in var_1 or '$' in var_1 or 'дол' in var_1 or 'dol' in var_1:
+    Bank(1,'$')
+
+elif 'гр' in var_1 or 'грив' in var_1 or 'грн' in var_1 or 'grn' in var_1:
+    Bank(28,'грн')
